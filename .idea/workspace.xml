@@ -20,11 +20,113 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0abdadca-a349-4063-a50a-e5cc02d26a58" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/Prioritization.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/RQ_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/shower.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/fonts/COPYRIGHT.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/fonts/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/fonts/roboto-bold-italic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/fonts/roboto-bold.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/fonts/roboto-italic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/fonts/roboto-light.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/fonts/roboto-mono-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/fonts/roboto-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/pictures/canvas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/pictures/exact.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/pictures/picture-1.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/pictures/picture-2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/pictures/picture-3.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/pictures/square.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/pictures/tall.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/pictures/wide.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/blocks/badge.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/blocks/caption.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/blocks/progress.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/blocks/region.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/fonts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/shower/grid.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/shower/shower-full.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/shower/shower-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/shower/shower-list.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/shower/shower-print.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/shower/shower.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/slide/content/basic.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/slide/content/code.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/slide/content/footer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/slide/content/inline.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/slide/content/lists.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/slide/content/quote.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/slide/content/table.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/slide/elements/columns.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/slide/elements/copyright.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/slide/elements/cover.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/slide/elements/next.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/slide/elements/place.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/slide/elements/shout.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/slide/elements/spotlight.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/slide/modifiers/black.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/slide/modifiers/clear.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/slide/modifiers/gray.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/slide/slide-full.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/slide/slide-list.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/slide/slide.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/material/styles/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/fonts/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/fonts/pt-mono-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/fonts/pt-sans-bold-italic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/fonts/pt-sans-bold.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/fonts/pt-sans-italic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/fonts/pt-sans-narrow-bold.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/fonts/pt-sans-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/pictures/canvas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/pictures/exact.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/pictures/picture-1.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/pictures/picture-2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/pictures/picture-3.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/pictures/square.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/pictures/tall.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/pictures/wide.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/blocks/badge.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/blocks/caption.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/blocks/progress.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/blocks/region.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/fonts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/shower/grid.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/shower/shower-full.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/shower/shower-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/shower/shower-list.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/shower/shower-print.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/shower/shower.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/slide/content/basic.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/slide/content/code.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/slide/content/footer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/slide/content/inline.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/slide/content/lists.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/slide/content/quote.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/slide/content/table.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/slide/elements/columns.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/slide/elements/copyright.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/slide/elements/cover.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/slide/elements/next.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/slide/elements/place.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/slide/elements/shout.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/slide/elements/spotlight.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/slide/modifiers/black.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/slide/modifiers/clear.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/slide/modifiers/gray.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/slide/ribbon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/slide/slide-full.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/slide/slide-list.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/slide/slide.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shower/themes/ribbon/styles/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/schoolmeister.github.io.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/schoolmeister.github.io.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +153,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -68,6 +170,7 @@
       <option name="presentableId" value="Default" />
       <updated>1609768168837</updated>
       <workItem from="1609768170515" duration="73767000" />
+      <workItem from="1610066590333" duration="78000" />
     </task>
     <servers />
   </component>
@@ -84,6 +187,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="809" y="189" key="run.anything.popup" timestamp="1610037206882">
