@@ -4,7 +4,8 @@
     <title>Shower Presentation Engine</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="node_modules/@shower/ribbon/styles/styles.css">
+    <link rel="stylesheet" href="node_modules/@shower/material/styles/styles.css">
+    <link rel="stylesheet" href="styles/custom.css">
     <style>
         .shower {
             --slide-ratio: calc(16 / 9);
@@ -14,22 +15,611 @@
 <body class="shower list">
 
     <header class="caption">
-        <h1>Shower Presentation Engine</h1>
-        <p>Yours Truly, Famous Inc.</p>
+        <h1>Intermediary thesis defense</h1>
+        <p>Michaël Deschoolmeester</p>
     </header>
 
-    <section class="slide">
-        <!-- Create your first slide -->
+    <section class="slide" id="intro">
+        <div style="margin:100px 0 30px 0">
+            <h2>Designing next-generation decentralized Web applications</h2>
+            <h3>Optimizing Link Traversal Query Processing response times over successive traversals in a Solid Web</h3>
+        </div>
+        <p class="footer smaller">Michaël Deschoolmeester</p>
     </section>
 
-    <footer class="badge">
-        <a href="https://github.com/shower/shower">Fork me on GitHub</a>
-    </footer>
+    <section class="slide" id="related-work-linked-data">
+        <h2>
+            Linked Data
+            <p class="reference">[
+                <a href="https://www.w3.org/DesignIssues/LinkedData.html">T. Berners-Lee (2006)</a>
+                ]
+            </p>
+        </h2>
+        <h3>Four design principles for sharing data on the Web</h3>
+        <ol>
+            <li>
+                <p>Use <small>URI</small>s as names for things</p>
+            </li>
+
+            <li>
+                <p>Use <small>HTTP</small> <small>URI</small>s so that people
+                    can look up those names.</p>
+            </li>
+
+            <li>
+                <p>When someone looks up a <small>URI</small>, provide useful
+                    information, using Web standards (e.g. RDF)</p>
+            </li>
+
+            <li>
+                <p>Include links to other <small>URIs</small>. so that they
+                    can discover more things.</p>
+            </li>
+        </ol>
+<!--        <ul>-->
+<!--            <li>URIs identify things</li>-->
+<!--            <li>Use HTTP URIs so that they can be looked up</li>-->
+<!--            <li>Provide useful information when looking up a URI, using Web standards</li>-->
+<!--            <li>Include links to other URIs</li>-->
+<!--        </ul>-->
+
+    </section>
+
+    <section class="slide" id="related-work-solid">
+        <h2>
+            Solid: Social Linked Data
+            <p class="reference">[
+                <a href="http://emansour.com/research/lusail/solid_protocols.pdf">A. Sambra et al (2016)</a>
+                ]
+            </p>
+        </h2>
+
+        <ul>
+            <li>Decentralized Web-based platform</li>
+            <li>Builds on existing Web standards
+                <ul>
+                    <li class="larger-note">RDF, Linked Data, Linked Data Platform (LDP), ...</li>
+                </ul>
+<!--                <p>RDF, Linked Data, Linked Data Platform (LDP), ...</p></li>-->
+            <li>Decouples data from applications</li>
+            <li>Data stored in personal online data stores: "pods"
+                <ul>
+                    <li>Data described through RDF triples in Linked Data documents</li>
+                    <li>Implements LDP specification, enabling read/write via REST APIs</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide" id="related-work-linked-data-querying">
+        <h2>Federated querying over Linked Data
+            <p class="reference">[
+                <a href="https://doi.org/10.1007/978-3-319-77525-8_76">O. Hartig, K. Hose, J. Sequeda (2019)</a>
+                ]
+            </p>
+        </h2>
+        <ul>
+            <li>
+                Via query-based Web interfaces
+                <ul>
+                    <li>Require dedicated interfaces to be present</li>
+                    <li>SPARQL endpoints, TPF, ...</li>
+                </ul>
+            </li>
+            <li>Via Linked Data principles
+                <ul>
+                    <li>Doesn't require query-based interfaces</li>
+                    <li>Data retrieval through URI lookups</li>
+                    <li>Linked Data query processing</li>
+                </ul>
+            </li>
+            <li>Hybrid approaches</li>
+        </ul>
+    </section>
+
+    <section class="slide" id="related-work-querying-source-selection">
+        <h2>Linked Data Query Processing</h2>
+        <ul>
+            <li>
+                Index-based approaches
+                <p class="reference">[
+                    <a href="https://link.springer.com/article/10.1007/s11280-010-0107-z">Umbrich et al (2011)</a>
+                    ]
+                </p>
+                <ul>
+                    <li>Cfr. traditional database approaches</li>
+                    <li>Uses a pre-populated index</li>
+                    <li>Enables faster queries</li>
+                    <li>New data and sources may not be present in index</li>
+                </ul>
+            </li>
+            <li>
+                Link Traversal Query Processing (LTQP)
+                <p class="reference">[
+                    <a href="https://doi.org/10.1007/978-3-642-04930-9_19">Hartig et al (2009)</a>
+                    ]
+                </p>
+                <ul>
+                    <li>Exploration by traversal: starting from seed URIs, discover new sources and data</li>
+                    <li>Data is up-to-date</li>
+                    <li>Discovering new sources is easy</li>
+                    <li>... but it is slower due to number of lookups</li>
+                </ul>
+            </li>
+            <li>
+                Hybrid approaches
+                <p class="reference">
+                    [<a href="https://doi.org/10.1145/2740908.2741751">M. Sabri (2015)</a>]
+                </p>
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide high" id="related-work-ltqp">
+        <h2>Link Traversal Query Processing (LTQP)</h2>
+        <strong>Example:</strong> Retrieve all posts on which my friends have commented
+
+        <pre><code>SELECT ?post WHERE {
+    <a href="https://mdschool.inrupt.net/profile/card#me">https://mdschool.inrupt.net/profile/card#me</a> foaf:knows ?friend.
+    ?comment schema:author ?friend.
+    ?post schema:comment ?comment.
+}</code></pre>
+        <ol class="tight-list">
+            <li>Determine seed URI: <a href="https://mdschool.inrupt.net/profile/card#me">https://mdschool.inrupt.net/profile/card#me</a></li>
+            <li>Dereference seed URI</li>
+            <li>Dereference URIs in found triples</li>
+            <li>Repeat recursively</li>
+            <li>Evaluate query over found triples</li>
+        </ol>
+    </section>
+
+    <section class="slide" id="related-work-querying-query-execution">
+        <h2>Link Traversal Query Processing (LTQP)</h2>
+        <h3>Query execution</h3>
+        <ul>
+            <li>
+                Two-phase approach
+                <ul>
+                    <li>Most straightforward: collect all triples, then execute query</li>
+                    <li>Query must be completed before obtaining first solutions</li>
+                </ul>
+            </li>
+            <li>
+                Integrated execution approaches
+                <ul>
+                    <li>Solutions are computed during data retrieval</li>
+                    <li>
+                        Pull-based models
+                        <p class="reference">[
+                            <a href="https://doi.org/10.1007/978-3-642-04930-9_19">Hartig et al (2009)</a>
+                        ]</p>
+                    </li>
+                    <li>
+                        Push-based models
+                        <p class="reference">[
+                            <a href="https://doi.org/10.1007/978-3-319-46523-4_19">Hartig and Özsu (2016)</a>
+                        ]</p>
+                    </li>
+
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide" id="related-work-querying-query-optimization">
+        <h2>Link Traversal Query Processing (LTQP)</h2>
+        <h3>Optimization and prioritization</h3>
+        <ul>
+            <li>
+                Number of lookups dominates response time
+                <p class="reference">
+                    [<a href="https://doi.org/10.1007/978-3-319-46523-4_19">Hartig and Özsu (2016)</a>]
+                </p>
+            </li>
+            <li>
+                Search tree pruning
+                <ul>
+                    <li>Prune search tree by only following relevant documents</li>
+                    <li>Exploratory work: Guided Link-Traversal-Based Query Processing
+                        <p class="reference">
+                            [<a href="https://arxiv.org/abs/2005.02239">R. Verborgh and R. Taelman</a>]
+                        </p>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Prioritization techniques
+                <ul>
+                    <li>Aim to provide solutions as quickly as possible</li>
+                    <li>Uses heuristics during traversal for identifying relevant documents</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide" id="related-work-prioritization">
+        <h2>Link Traversal Query Processing (LTQP)</h2>
+        <h3>Prioritization</h3>
+        <ul>
+            <li>Walking without a Map: Optimizing Response Times of Traversal-Based Linked Data Queries
+                <p class="reference">
+                    [<a href="https://doi.org/10.1007/978-3-319-46523-4_19">Hartig and Özsu (2016)</a>]
+                </p>
+                <ul>
+                    <li>
+                        Amount of lookups dominates response time, rather than result construction process
+                        <p class="note">Thus, focus on order and amount of lookups</p>
+                    </li>
+                    <li>
+                        Proposes and evaluates 16 different prioritization approaches
+                        <p class="note">Can be used as basis for future approaches</p>
+                    </li>
+                    <li>
+                        Assumptions made:
+                        <ul>
+                            <li>
+                                No a priori knowledge about the Web of Linked Data
+                            </li>
+                            <li>
+                                Web of Linked Data does not change
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Link Traversal Query Processing (LTQP)</h2>
+        <h3>Prioritization example</h3>
+        <div>
+            <img src="assets/Prioritization.png" class="diagram" style="width: 300px">
+        </div>
+    </section>
+<!--    <section class="slide" id="common-terms">-->
+<!--        <h2>Common terms used</h2>-->
+<!--        <dl>-->
+<!--            <dt>A solution</dt>-->
+<!--            <dd>A binding of variables to RDF terms that matches our query</dd>-->
+<!--            <dt>Relative first-solution response time</dt>-->
+<!--            <dd>Time relative to the complete execution time to obtain the <strong>first</strong> solution</dd>-->
+<!--            <dt>Relative complete-solution response time</dt>-->
+<!--            <dd>Time relative to the complete execution time to obtain the <strong>last</strong> solution</dd>-->
+<!--        </dl>-->
+<!--        &lt;!&ndash;        <p class="note">*From <a href="https://www.rubensworks.net/raw/slides/2020/knows-linktraversal/#start">Introduction to Link Traversal Query Processing</a> by R. Taelman</p>&ndash;&gt;-->
+<!--    </section>-->
+
+    <section class="slide" id="problem">
+        <h2>Problems identified</h2>
+        <ul>
+            <li>Link-Traversal based techniques are slow</li>
+            <li>Current mechanisms assume no a priori knowledge
+                <p class="note">If we have already traversed the web in the past, then we have a priori knowledge</p>
+            </li>
+            <li>Current mechanisms assume a static Web
+                <p class="note">In a Solid Web, data is produced all the time</p>
+            </li>
+            <li>There are no feedback mechanisms for adjusting priorities
+                <p class="note">
+                    Solutions are either deemed relevant or irrelevant: they match the query, or they don't.
+                    <br>
+                    In reality, some solutions are more relevant than others.
+                </p>
+            </li>
+        </ul>
+<!--        <p class="note">*From <a href="https://www.rubensworks.net/raw/slides/2020/knows-linktraversal/#start">Introduction to Link Traversal Query Processing</a> by R. Taelman</p>-->
+    </section>
+
+<!--    <section class="slide" id="assumptions">-->
+<!--        <h2>Assumptions</h2>-->
+<!--        <ul style="margin-top:70px">-->
+<!--            <li style="margin-bottom:30px">Documents that contained relevant data in the past, are more likely to contain relevant data now.-->
+<!--                <p class="note">A document containing friends is unlikely to suddenly contain photos.</p>-->
+<!--            </li>-->
+<!--            <li>Some documents are more likely to contain new data than others.-->
+<!--                <p class="note">Most users are consumers rather than producers.</p>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </section>-->
+
+    <section class="slide" id="goal">
+        <h2>Goal of this thesis</h2>
+        <h3>Find out whether successive executions of <u>the same query</u> in a <u>dynamic</u> Linked Data Web can lead to improvements in response times</h3>
+        <dl class="smaller">
+            <dt>Why the same query?</dt>
+            <dd>We execute the same queries over and over all the time (use case: a social timeline)</dd>
+            <dt>Why a dynamic Web?</dt>
+            <dd>Quickly finding new results is of much value</dd>
+        </dl>
+    </section>
+
+    <section class="slide smaller" id="research-questions">
+        <h2>Research questions</h2>
+        For the same query, can clients exploit knowledge from previous executions to ...
+        <ol style="margin-left: 40px" class="large-spacing">
+            <li>
+                ... obtain solutions more quickly in future executions?
+            </li>
+            <li>
+                ... obtain new solutions more quickly in future executions?
+            </li>
+            <li>
+                ... dynamically adjust priorities for future solutions?
+                <p class="note"></p>
+            </li>
+        </ol>
+    </section>
+
+    <section class="slide smaller" id="hypotheses">
+        <h2>Hypotheses</h2>
+        <ol>
+            <li>
+                The first-solution response time decreases by prioritizing documents that were relevant in previous executions.
+                <p class="note">A document containing names is unlikely to change to a document containing photos.</p>
+            </li>
+            <li>
+                The first-solution response time of new solutions decreases over successive queries.
+                <p class="note">Most users are consumers rather than producers, and some produce more than others.</p>
+            </li>
+            <li>
+                ...
+            </li>
+        </ol>
+    </section>
+
+    <section class="slide" id="experimental-set-up-1">
+        <h2>Experimental set-up (1)</h2>
+        <li>The same query is executed multiple times.</li>
+        <li>
+            <strong>Use case:</strong> timeline containing posts on which my friends have commented
+
+            <pre style="margin-top: 20px"><code>@prefix schema: &#x3C;http://schema.org/&#x3E;.
+SELECT * WHERE {
+    :me schema:knows ?friend.
+    ?comment schema:author ?friend.
+    ?post schema:comment ?comment.
+    ?post a schema:SocialMediaPosting
+}</code></pre>
+        </li>
+    </section>
+
+    <section class="slide" id="experimental-set-up-2">
+        <h2>Experimental set-up (2)</h2>
+        <li>Queries executed over a fake social graph
+            <ul>
+                <li>Data produced by a Discrete Event Simulator
+                    <p class="note">Masters' thesis K. Haerens: Investigation and simulation of a decentralized social network (2020)</p>
+                </li>
+                <li>Every step, some pods produce new data according to a distribution</li>
+                <li>Every X steps, execute the query</li>
+            </ul>
+        </li>
+        <li>Investigate different prioritization mechanisms</li>
+<!--        <li>Investigate impact of amount of documents</li>-->
+        <li>Investigate impact of different distributions of data producers</li>
+    </section>
+
+    <section class="slide" id="metrics">
+        <h2>Metrics</h2>
+        <dl>
+<!--            <dt>A solution</dt>-->
+<!--            <dd>A binding of variables to RDF terms that matches our query</dd>-->
+            <dt>First-solution response time</dt>
+            <dd>Time to obtain the <u>first solution</u></dd>
+            <dt>Complete-solution response time</dt>
+            <dd>Time to obtain the <u>last solution</u></dd>
+            <dt>Query completion time</dt>
+            <dd>Time to obtain the <u>last document</u></dd>
+            <dt>Result Contribution Counter (RCC)</dt>
+            <dd>Amount of solutions contributed to by a document</dd>
+        </dl>
+    </section>
+
+    <section class="slide smaller" id="prior-approaches">
+        <h2>Some (preliminary) approaches</h2>
+        <dl>
+            <dt>Max RCC</dt>
+            <dd>
+                Order documents by RCC count of previous executions
+                <p class="note">=> documents with the most content</p>
+            </dd>
+            <dt>RCC Diff</dt>
+            <dd>
+                Order documents by largest change in RCC
+                <p class="note">=> most "active" documents</p>
+            </dd>
+            <dt>RCC Diff Capped</dt>
+            <dd>
+                Same as RCC Diff, but capped at a certain value
+                <p class="note">=> reduce influence of too active documents</p>
+            </dd>
+        </dl>
+        <ul>
+            <li>Approaches can be combined with a moving average over X executions</li>
+        </ul>
+    </section>
+
+<!--    <section class="slide smaller">-->
+<!--        <h2>Some (preliminary) approaches</h2>-->
+<!--        <dl>-->
+<!--            <dt>RCC Diff weighed</dt>-->
+<!--            <dd>-->
+<!--                RCC Diff, but-->
+<!--            </dd>-->
+<!--        </dl>-->
+<!--    </section>-->
+
+    <section class="slide" id="evaluation-1">
+        <h2>Implementation & Evaluation</h2>
+        <h3>TO DO 🙁</h3>
+    </section>
+
+<!--    <section class="slide" id="evaluation-1">-->
+<!--        <h2>Evaluation (1)</h2>-->
+<!--        <blockquote><a href="#hypotheses">Hypothesis 1</a>: The first-solution response time decreases by prioritizing documents that were relevant in previous executions.</blockquote>-->
+<!--        <div class="chart-container" style="position: relative; height:100%; width:33%">-->
+<!--            <canvas id="myChart-1" width="100" height="100"></canvas>-->
+<!--        </div>-->
+<!--    </section>-->
+
+<!--    <section class="slide" id="evaluation-2">-->
+<!--        <h2>Evaluation (2)</h2>-->
+<!--        <blockquote><a href="#hypotheses">Hypothesis 2</a>: The first-solution response time of new solutions decreases over successive queries.</blockquote>-->
+<!--        <div class="chart-container" style="position: relative; height:100%; width:33%">-->
+<!--            <canvas id="myChart-2" width="100" height="100"></canvas>-->
+<!--        </div>-->
+<!--    </section>-->
+
+    <section class="slide" id="future-work">
+        <h2>Future Work</h2>
+        <ul>
+            <li>
+                Exploiting knowledge from previous query executions for other queries.
+                <p class="note">The structure of the web (and its data) is already known from earlier</p>
+            </li>
+            <li>
+                Adjusting priorities based on content of results, rather than source
+                <p class="note">Ex: I don't like cycling, so deprioritize posts about cycling</p>
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide" id="planning">
+        <h2>Planning</h2>
+        <table>
+            <tr>
+                <th scope="col" style="width:200px">Date</th>
+                <th scope="col">Plan</th>
+            </tr>
+            <tr>
+                <td>by February 15th</td>
+                <td>Completed unfinished work presented today: determine queries, evaluation, extra approaches
+                </td>
+            </tr>
+            <tr>
+                <td>by March 10th</td>
+                <td>Code written, experiment set up</td>
+            </tr>
+            <tr>
+                <td>by March 20th</td>
+                <td>Experimental results and conclusions</td>
+            </tr>
+            <tr>
+                <td>by April 30th</td>
+                <td>Re-iteration of code and experiments</td>
+            </tr>
+            <tr>
+                <td>by May 15th(?)</td>
+                <td>Thesis hand-in</td>
+            </tr>
+
+<!--            <tr>-->
+<!--                <th scope="col">Locavore</th>-->
+<!--                <th>Umami</th>-->
+<!--                <th>Helvetica</th>-->
+<!--                <th>Vegan</th>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <th scope="row">Fingerstache</th>-->
+<!--                <td>Kale</td>-->
+<!--                <td>Chips</td>-->
+<!--                <td>Keytar</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <th scope="row">Sriracha</th>-->
+<!--                <td>Gluten-free</td>-->
+<!--                <td>Ennui</td>-->
+<!--                <td>Keffiyeh</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <th scope="row">Thundercats</th>-->
+<!--                <td>Jean</td>-->
+<!--                <td>Shorts</td>-->
+<!--                <td>Biodiesel</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <th scope="row">Terry</th>-->
+<!--                <td>Richardson</td>-->
+<!--                <td>Swag</td>-->
+<!--                <td>Blog</td>-->
+<!--            </tr>-->
+        </table>
+    </section>
+
+    <section class="slide" id="open-questions">
+        <h2>Open questions</h2>
+        <ul>
+            <li>
+                Is it useful to investigate ways to incorporate user-defined priorities?
+                <p class="note">What would a falsifiable hypothesis for this be?</p>
+            </li>
+            <li>
+                Any ideas for other approaches?
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide" id="questions">
+        <h2>Any questions?</h2>
+    </section>
+
+<!--    <footer class="badge">-->
+<!--        <a href="https://github.com/shower/shower">Fork me on GitHub</a>-->
+<!--    </footer>-->
 
     <div class="progress"></div>
 
     <script src="node_modules/@shower/core/dist/shower.js"></script>
-    <!-- Copyright © 2021 Yours Truly, Famous Inc. -->
-
+    <script src="node_modules/chart.js/dist/Chart.js"></script>
+    <script>
+        let ctx = document.getElementById('myChart-1');
+        let myChart = new Chart(ctx, {
+            type: 'scatter',
+            data: {
+                // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '',
+                    data: [
+                        {x: 0, y: 12}, {x: 1, y: 8}, {x: 2, y: 6.5}, {x: 3, y: 5.5}, {x: 4, y: 5}, {x: 5, y: 4.75}],
+                    backgroundColor:
+                        'rgba(54, 162, 235, 0.2)'
+                    ,
+                    borderColor:
+                        'rgba(54, 162, 235, 1)'
+                    ,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: 'lol'
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Execution #'
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'First-solution response time'
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
 </body>
 </html>
